@@ -21,6 +21,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - uses: dtolnay/rust-toolchain@master
         with:
           toolchain: stable
@@ -37,6 +39,8 @@ jobs:
       RUSTDOCFLAGS: "-Dwarnings --cfg docsrs -Zunstable-options --generate-link-to-definition"
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - name: Install toolchain
         uses: dtolnay/rust-toolchain@master
         with:
@@ -85,6 +89,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - name: MSRV
         if: ${{ matrix.variant == 'MSRV' }}
         run: cp Cargo.lock.msrv Cargo.lock
@@ -135,6 +141,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - name: Install toolchain
         uses: dtolnay/rust-toolchain@master
         with:
@@ -160,6 +168,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - name: Install toolchain
         run: |
           rustup toolchain install nightly --component miri
@@ -179,6 +189,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - name: Install toolchain
         uses: dtolnay/rust-toolchain@nightly
         with:
@@ -202,6 +214,8 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - name: Install toolchain
         uses: dtolnay/rust-toolchain@nightly
         with:
